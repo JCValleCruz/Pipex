@@ -6,7 +6,7 @@
 /*   By: jvalle-d <jvalle-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/29 13:53:26 by jvalle-d          #+#    #+#             */
-/*   Updated: 2024/08/30 11:32:24 by jvalle-d         ###   ########.fr       */
+/*   Updated: 2024/09/02 19:04:01 by jvalle-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ char	*ft_get_relative_path(char *cmd, char **envp, char *envp_var)
 	ft_free_split(possible_paths);
 	return (path);
 }
-
 char	*ft_get_path(char *cmd, char **envp)
 {
 	char	*full_path;
@@ -49,4 +48,21 @@ char	*ft_get_path(char *cmd, char **envp)
 	if (!full_path)
 		full_path = ft_get_relative_path(cmd, envp, "PWD=");
 	return (full_path);
+}
+void	ft_free_split(char **split)
+{
+	unsigned int	i;
+
+	i = 0;
+	while (split[i])
+	{
+		free(split[i]);
+		i++;
+	}
+	free (split);
+}
+int	ft_no_enough_args(void)
+{
+	write(1, "The number of args must be 5.", 29);
+	exit(1);
 }

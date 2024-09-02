@@ -15,8 +15,6 @@ FLAGS    	:= -Wall -Wextra -Werror
 ################################################################################
 
 SRCS        :=      pipex.c \
-                          errors.c \
-                          frees.c \
                           Libft/ft_atoi.c \
                           Libft/ft_bzero.c \
                           Libft/ft_calloc.c \
